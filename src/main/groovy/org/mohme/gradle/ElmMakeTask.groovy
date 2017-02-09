@@ -49,7 +49,7 @@ class ElmMakeTask extends DefaultTask {
       elmMakeCmd += '--debug'
     }
     elmMakeCmd += "--max-cores=${maxCores}"
-    elmMakeCml += "${additionalParams}"
+    elmMakeCmd += "${additionalParams}"
 
     elmMake(elmMakeCmd)
   }
