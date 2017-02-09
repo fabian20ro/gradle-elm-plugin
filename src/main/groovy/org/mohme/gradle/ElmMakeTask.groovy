@@ -19,6 +19,8 @@ class ElmMakeTask extends DefaultTask {
   @Input String targetModule = 'elm.js'
   @Input boolean confirm = true
   @Input boolean debug = false
+  @Input String maxCores = '4'
+  @Input String additionalParams = ''
 
   @InputDirectory
   private getSourceDir() {
@@ -46,6 +48,8 @@ class ElmMakeTask extends DefaultTask {
     if (debug) {
       elmMakeCmd += '--debug'
     }
+    elmMakeCmd += "--max-cores=${maxCores}"
+    elmMakeCml += "${additionalParams}"
 
     elmMake(elmMakeCmd)
   }
